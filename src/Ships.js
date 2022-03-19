@@ -4,7 +4,7 @@ import {Select, MenuItem, InputLabel, FormControl} from '@material-ui/core';
 
 export default function Ships(){
     const [ships, setShips] = useState([])
-    const [shipName, setShipName] = useState("Placeholder Ship!")
+    const [shipName, setShipName] = useState("None Selected")
 
     useEffect(() => {
         fetch('https://swapi.dev/api/starships/?format=json')
@@ -19,22 +19,23 @@ export default function Ships(){
     return(
         <div>
             <FormControl mediumWidth>
-            <InputLabel id="demo-simple-select-label">Ships</InputLabel>
-            <Select 
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                label="Ship"
-                onChange={handleChange}
-            >
-                {ships.map(ship => (
-                    <MenuItem
-                       key={uuid()}
-                       value={ship.name}
-                    >
-                        {ship.name}
-                    </MenuItem>
-                ))}
-            </Select>
+                <InputLabel id="demo-simple-select-label">Ships</InputLabel>
+                <Select style={{minWidth: "15em"}}
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Ship"
+                    onChange={handleChange}
+                >
+                    {ships.map(ship => (
+                        <MenuItem
+                        key={uuid()}
+                        value={ship.name}
+                        >
+                            {ship.name}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
             <p><strong>Selected Ship:</strong> {shipName}</p>
            <h2>Ship Details</h2>
            {ships
@@ -45,7 +46,7 @@ export default function Ships(){
                 <strong>Model:</strong> {ship.model}<br />
                 <strong>Passengers:</strong> {ship.passengers}
            </p>)}
-           </FormControl>
+          
         </div>
     )
 }
