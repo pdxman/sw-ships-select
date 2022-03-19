@@ -2,7 +2,7 @@
 
 ## Project Goals
 
-1) Consume API ustilizing the useEffect Hook
+1) Consume API utilizing the useEffect Hook
 2) Set an array of ships in state using the useState Hook
-3) Set a select with the drop down options mapping over the ship names
-4) filter through results based on drop down value
+3) Set a select tag with the drop down options mapping over the ship names
+4) Filter through results based on drop down value
