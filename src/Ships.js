@@ -9,13 +9,10 @@ export default function Ships(){
         fetch('https://swapi.dev/api/starships/?format=json')
         .then(res => res.json())
         .then(data => setShips(data.results))
-        console.log('the ships: ', ships)
-        console.log('useEffect ran!')   
     }, [])    
    
     const handleChange = (e) => {
         setShipName(e.target.value)
-        console.log("is this on?")
     }
 
     return(
