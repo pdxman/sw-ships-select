@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import uuid from 'react-uuid'
+import {Select, MenuItem, InputLabel, FormControl} from '@material-ui/core';
 
 export default function Ships(){
     const [ships, setShips] = useState([])
@@ -17,15 +18,23 @@ export default function Ships(){
 
     return(
         <div>
-            <select onChange={handleChange}>
+            <FormControl mediumWidth>
+            <InputLabel id="demo-simple-select-label">Ships</InputLabel>
+            <Select 
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Ship"
+                onChange={handleChange}
+            >
                 {ships.map(ship => (
-                    <option 
-                        key={uuid()}
-                        value={ship.name} >
+                    <MenuItem
+                       key={uuid()}
+                       value={ship.name}
+                    >
                         {ship.name}
-                    </option>
+                    </MenuItem>
                 ))}
-            </select>
+            </Select>
             <p><strong>Selected Ship:</strong> {shipName}</p>
            <h2>Ship Details</h2>
            {ships
@@ -36,6 +45,7 @@ export default function Ships(){
                 <strong>Model:</strong> {ship.model}<br />
                 <strong>Passengers:</strong> {ship.passengers}
            </p>)}
+           </FormControl>
         </div>
     )
 }
